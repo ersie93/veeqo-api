@@ -1,4 +1,8 @@
-class OrdersToProductController < ApplicationController
+class OrdersToProductsController < ApplicationController
+  def show
+    @orders = OrdersToProduct.all
+  end
+
   def create
 
     @orders_to_product = OrdersToProduct.new(orders_to_product_params)

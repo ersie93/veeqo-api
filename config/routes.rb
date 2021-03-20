@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # devise_for :users
-  root to: 'orders#show'
+  root to: 'orders_to_products#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :products do
 
