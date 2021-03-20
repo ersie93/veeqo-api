@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_120143) do
+ActiveRecord::Schema.define(version: 2021_03_20_202313) do
+
+  create_table "boxes", force: :cascade do |t|
+    t.string "name"
+    t.float "width"
+    t.float "height"
+    t.float "depth"
+    t.float "weight_resistance"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
