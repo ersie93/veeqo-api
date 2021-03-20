@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
-    if @order.status == 'open'
-      @myproducts = OrdersToProduct.where(order_id:@order.id)
-    end
+    #if @order.status == 'open'
+      @myproducts = OrdersToProducts.where(order_id:@order.id)
+    #end
   end
 
   def update
