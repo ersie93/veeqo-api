@@ -1,17 +1,33 @@
 <%= link_to "go back to products", products_path %>
-<h2>Name: <%= @products.name%></h2>
-<p>Price: <%= @products.price  %></p>
 
-<% @orders.each do |order| %>
-  <%= order.product.name %>
-<% end %>
-
-<%# link to seller's profile %>
-<% @product.review.each do |review| %>
-  <% sum_of_ratings += review.rating %>
-<% end %>
-<% if @product.review.count == 0 %>
-  <p> This product has not been reviewed <p>
-<% else %>
-  <p>Average Rating: <%= "#{sum_of_ratings/@product.review.count} Reviews made: #{@product.review.count}" %></p>
-<% end %>
+<div class="container order-details">
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Order</th>
+      <th scope="col">Item List</th>
+      <th scope="col">Last</th>
+      <th scope="col">Package size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+</div>
