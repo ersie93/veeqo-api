@@ -38,3 +38,72 @@ product4.save!
 # {:id=>52647186, :width=>10.0, :height=>10.0, :depth=>15.0, :dimensions_unit=>"cm", :weight_grams=>200.0, :weight_unit=>"oz", :weight=>7.05}
 product5 = Product.create(name:"VEEQO SHORT SLEEVE T-SHIRT [DEMO]", width: 10.0, height: 10.0, weight_grams: 200.0, weight_unit: "oz", depth: 15.0, stock: 10)
 product5.save!
+
+
+
+
+
+# envelope width: 31.5, length: 24, height: 2;
+Box1 = Box.create(name:'Envolope', width: 31.5, depth: 24, height:2, weight_resistance:'')
+Box1.save!
+#pak1 width:37, length:29.5, height: 5;
+Box2 = Box.create(name:'Pak 1', width: 37, depth: 29.5, height:5, weight_resistance:'')
+Box2.save!
+
+#pak2 width:39, length:30.5, height: 2;
+Box3 = Box.create(name:'Pak 2', width: 39, depth: 30.5, height:2, weight_resistance:'')
+Box3.save!
+
+#pak3 width:44.5, length:52.5, height: 5;
+Box4 = Box.create(name:'Pak 3', width: 44.5, depth: 52.5, height:5, weight_resistance:'')
+Box4.save!
+
+#pak4 width:32, length:26, height: 2;
+Box5 = Box.create(name:'Pak 4', width: 32, depth: 26, height:2, weight_resistance:'')
+Box5.save!
+
+#tube width:15, length:15, height: 96.5;
+Box6 = Box.create(name:'Tube', width: 15, depth: 15, height:96.5, weight_resistance:'')
+Box6.save!
+
+#10kg Box width:40, length:33, height: 25;
+Box7 = Box.create(name:'10kg Box', width: 40, depth: 33, height:25, weight_resistance:10000)
+Box7.save!
+
+#25kg Box width:55, length:42, height: 33;
+Box8 = Box.create(name:'25kg Box', width: 55, depth: 42, height:33, weight_resistance:25000)
+Box8.save!
+
+#Small BOX 1 width:31, length:27, height: 3;
+Box9 = Box.create(name:'Box 1', width: 31, depth: 27, height:3, weight_resistance:'')
+Box9.save!
+
+#Small Box2 width:28, length:22, height: 10;
+Box10 = Box.create(name:'Box 2', width: 28, depth: 22, height:10, weight_resistance:'')
+Box10.save!
+
+#Medium Box1 width:33, length:29, height: 5;
+Box11 = Box.create(name:'Medium Box 1', width: 33, depth: 29, height:5, weight_resistance:'')
+Box11.save!
+
+#Medium BOX2 width:28, length:22, height: 10;
+Box12 = Box.create(name:'Medium Box 2', width: 39, depth: 22, height:10, weight_resistance:'')
+Box12.save!
+
+#Large BOX1 width:44, length:31, height: 7.5;
+Box13 = Box.create(name:'Large Box 1', width: 39, depth: 31, height:7.5, weight_resistance:'')
+Box13.save!
+
+#Large Box2 width:28, length:22, height: 19;
+Box14 = Box.create(name:'Large Box 2', width: 28, depth: 22, height:19, weight_resistance:'')
+Box14.save!
+
+#EXTRA LARGE BOX width:29, length:27, height: 28;
+Box15 = Box.create(name:'Extra Large Box', width: 29, depth: 27, height:28, weight_resistance:'')
+Box15.save!
+
+#EXTRA LARGE BOX width:39, length:35, height: 70;
+
+Box16 = Box.create(name:'Extra Large Box2', width: 39, depth: 35, height:70, weight_resistance:'')
+Box16.save!
+
