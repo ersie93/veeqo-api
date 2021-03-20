@@ -10,25 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_152410) do
-
-  create_table "order_to_products", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2021_03_20_120143) do
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders_to_products", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "product_id", null: false
+    t.integer "order_id", null: false
+    t.integer "unit_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_orders_to_products_on_order_id"
+    t.index ["product_id"], name: "index_orders_to_products_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.float "width"
+    t.float "height"
+    t.float "depth"
+    t.string "dimensions_unit"
+    t.text "description"
+    t.integer "stock"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "price"
     t.float "weight_grams"
     t.float "weight_unit"
-    t.float "price"
-    t.float "weight"
   end
 
+  add_foreign_key "orders_to_products", "orders"
+  add_foreign_key "orders_to_products", "products"
 end

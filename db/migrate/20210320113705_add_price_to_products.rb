@@ -1,4 +1,4 @@
-class AddPriceToProducts < ActiveRecord::Migration[6.1]
+class AddPriceToProducts < ActiveRecord::Migration[5.2]
   def change
     add_column :products, :price, :float
   end
