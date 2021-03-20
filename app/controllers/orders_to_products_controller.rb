@@ -1,6 +1,6 @@
 class OrdersToProductsController < ApplicationController
   def show
-    @orders = OrdersToProduct.all
+    @orders = OrdersToProducts.all
   end
 
   def create
