@@ -11,9 +11,9 @@
             <option> <%= product.name%> </option>
           <% end %>
         </select> -->
-        <%= f.input :product, collection: @products  %>
+        <%= f.input :product, collection: @products, label: false  %>
         <div>
-          <span>Quantity: </span>
+          <span>Quantity </span>
           <%= f.input :quantity, label: false %>
         </div>
       </div>
