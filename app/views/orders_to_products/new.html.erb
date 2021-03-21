@@ -1,6 +1,9 @@
-<h1>new order</h1>
-
 <div class="container upload-container ">
+<div class="logo">
+    <%= image_tag "logo.png", height: 50, width: 50, crop: :fill, class: 'empty card-trip-img' %>
+  </div>
+<h1 class="center">Beep Box </h1>
+<p class="center">Find the best box for you!</p>
   <div class="row justify-content-center my-3">
     <div class="col-6 ">
       <%= simple_form_for :order  do |f| %>
