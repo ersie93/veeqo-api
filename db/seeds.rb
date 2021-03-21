@@ -17,6 +17,9 @@
 
 # fIRST OBJect "Herbal Shampoo [DEMO]"
 # {:id=>52647189, :width=>10.0, :height=>10.0, :depth=>15.0, :dimensions_unit=>"cm", :weight_grams=>425.0, :weight_unit=>"oz", :weight=>14.99}
+OrdersToProducts.delete_all
+Order.delete_all
+
 
 product1 = Product.where(name:"Herbal Shampoo [DEMO]", width: 10.0, height: 10.0, weight_grams: 425.0, weight_unit: "oz", depth: 15.0, stock: 10).first_or_create
 product1.save!
@@ -87,8 +90,8 @@ Box11 = Box.where(name:'Medium Box 1', width: 33, depth: 29, height:5, weight_re
 Box11.save!
 
 #Medium BOX2 width:28, length:22, height: 10;
-Box12 = Box.where(name:'Medium Box 2', width: 39, depth: 22, height:10, weight_resistance:'').first_or_create
-Box12.save!
+box12 = Box.where(name:'Medium Box 2', width: 39, depth: 22, height:10, weight_resistance:'').first_or_create
+box12.save!
 
 #Large BOX1 width:44, length:31, height: 7.5;
 Box13 = Box.where(name:'Large Box 1', width: 39, depth: 31, height:7.5, weight_resistance:'').first_or_create
@@ -131,24 +134,81 @@ order6.save!
 
 # creating Ordes_to_products
 
-orders_to_products1 = OrdersToProducts.where(quantity: 2, product_id: 1, order_id: 1, unit_price: 10 ).first_or_create
+orders_to_products1 = OrdersToProducts.where(quantity: 2, product_id: product1.id, order_id: order1.id, unit_price: 10 ).first_or_create
 orders_to_products1.save!
 
-
-orders_to_products2 = OrdersToProducts.where(quantity:1, product_id:2, order_id:1, unit_price:10 ).first_or_create
+orders_to_products2 = OrdersToProducts.where(quantity:1, product_id:product2.id, order_id:order1.id, unit_price:10 ).first_or_create
 orders_to_products2.save!
 
-orders_to_products3 = OrdersToProducts.where(quantity:2, product_id:3, order_id:2, unit_price:10 ).first_or_create
+orders_to_products3 = OrdersToProducts.where(quantity:2, product_id:product3.id, order_id:order2.id, unit_price:10 ).first_or_create
 orders_to_products3.save!
 
-orders_to_products4 = OrdersToProducts.where(quantity:2, product_id:4, order_id:3, unit_price:10 ).first_or_create
+orders_to_products4 = OrdersToProducts.where(quantity:2, product_id:product4.id, order_id:order3.id, unit_price:10 ).first_or_create
 orders_to_products4.save!
 
-orders_to_products5 = OrdersToProducts.where(quantity:1, product_id:2, order_id:1, unit_price:10 ).first_or_create
+orders_to_products5 = OrdersToProducts.where(quantity:1, product_id:product2.id, order_id:order4.id, unit_price:10 ).first_or_create
 orders_to_products5.save!
 
-orders_to_products6 = OrdersToProducts.where(quantity:2, product_id:5, order_id:5, unit_price:10 ).first_or_create
+orders_to_products6 = OrdersToProducts.where(quantity:2, product_id:product5.id, order_id:order5.id, unit_price:10 ).first_or_create
 orders_to_products6.save!
 
-orders_to_products7 = OrdersToProducts.where(quantity:5, product_id:5, order_id:6, unit_price:10 ).first_or_create
+orders_to_products7 = OrdersToProducts.where(quantity:5, product_id:product5.id, order_id:order6.id, unit_price:10 ).first_or_create
 orders_to_products7.save!
+
+
+#adding the right box for each order
+
+#order1
+puts "beep my order is #{order1.id}"
+order_hash = Hash.new()
+order_hash["order_to_products"] = OrdersToProducts.where(order_id:order1.id)
+order_hash["products"] = order_hash["order_to_products"].map(&:product)
+rightbox = GettingBoxService.get(order1, order_hash["order_to_products"], order_hash["products"])
+
+order1.box_id = rightbox.id
+order1.save!
+
+#order2
+order_hash = Hash.new()
+order_hash["order_to_products"] = OrdersToProducts.where(order_id:order2.id)
+order_hash["products"] = order_hash["order_to_products"].map(&:product)
+rightbox = GettingBoxService.get(order2, order_hash["order_to_products"], order_hash["products"])
+
+order2.box_id = rightbox.id
+order2.save!
+#order3
+order_hash = Hash.new()
+order_hash["order_to_products"] = OrdersToProducts.where(order_id:order3.id)
+order_hash["products"] = order_hash["order_to_products"].map(&:product)
+rightbox = GettingBoxService.get(order3, order_hash["order_to_products"], order_hash["products"])
+
+order3.box_id = rightbox.id
+order3.save!
+
+#order4
+order_hash = Hash.new()
+order_hash["order_to_products"] = OrdersToProducts.where(order_id:order4.id)
+order_hash["products"] = order_hash["order_to_products"].map(&:product)
+rightbox = GettingBoxService.get(order4, order_hash["order_to_products"], order_hash["products"])
+
+order4.box_id = rightbox.id
+order4.save!
+
+#order5
+order_hash = Hash.new()
+order_hash["order_to_products"] = OrdersToProducts.where(order_id:order5.id)
+order_hash["products"] = order_hash["order_to_products"].map(&:product)
+rightbox = GettingBoxService.get(order5, order_hash["order_to_products"], order_hash["products"])
+
+order5.box_id = rightbox.id
+order5.save!
+#order6
+puts "beep my order is #{order6.id}"
+order_hash = Hash.new()
+order_hash["order_to_products"] = OrdersToProducts.where(order_id:order6.id)
+order_hash["products"] = order_hash["order_to_products"].map(&:product)
+
+rightbox = GettingBoxService.get(order6, order_hash["order_to_products"], order_hash["products"])
+
+order6.box_id = box12.id
+order6.save!

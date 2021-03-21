@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'veeqo'
 gem 'veeqo_api_ruby'
 gem 'dotenv-rails'
+gem 'simple_form'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

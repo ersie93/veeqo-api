@@ -1,0 +1,26 @@
+<h1>new order</h1>
+
+<div class="container upload-container ">
+  <div class="row justify-content-center my-3">
+    <div class="col-6 ">
+      <%= simple_form_for :order  do |f| %>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Product</label>
+        <!-- <select class="form-control" id="exampleFormControlSelect1">
+          <% @products.each do |product| %>
+            <option> <%= product.name%> </option>
+          <% end %>
+        </select> -->
+        <%= f.input :product, collection: @products  %>
+        <div>
+          <span>Quantity: </span>
+          <%= f.input :quantity, label: false %>
+        </div>
+      </div>
+      <%= link_to root_path do %>
+        <%= f.button :submit, class: "btn btn-flat"%>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
