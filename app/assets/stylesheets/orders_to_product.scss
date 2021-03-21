@@ -2,14 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.logo{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 64px;
+}
 
 .orders-container{
   font-family: sans-serif;
   width: 800px;
   margin: 0 auto;
   border: 2px solid #009879;
+  border-radius: 10px;
   padding: 3rem;
   margin: 0 auto;
+  background-color: white;
+}
+
+.main-container{
+  background-color: lightblue;
+
 }
 .styled-table{
     border-collapse: collapse;
@@ -21,7 +33,7 @@
 }
 
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: lightblue;
     color: #ffffff;
 
     text-align: center;

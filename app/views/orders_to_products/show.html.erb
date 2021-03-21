@@ -1,35 +1,40 @@
-
-<div class="orders-container mt-3">
-  <div class="container order-details">
-    <div class="form-centralize-review d-flex flex-column align-items-center">
-      <div class="heading-rounded-sm">
-        <h2 style="text-align: center;"> Order and Package</h2>
-      </div>
-      <table class="styled-table">
-        <thead>
-          <tr class="table-title">
-            <th scope="col">Order</th>
-            <th scope="col">Order List</th>
-            <th scope="col">Quanity list</th>
-            <th scope="col">Package size</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @orders_to_product.each do |order_to_product| %>
-          <tr>
-            <td>
-              <%= link_to "#{Order.find(order_to_product.order_id).id}", order_path((Order.find(order_to_product.order_id).id))%>
-            </td>
-            <td><%= @products.find(order_to_product.product_id).name %></td>
-            <td><%= order_to_product.quantity %> </td>
-            <td><%= Box.find(Order.find(order_to_product.order_id).box_id).name %></td>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
-      <div class="btn-box">
-      <%= link_to "new order", new_orders_to_product_path, class: "order-btn" %>
+<div class="main-container">
+  <div class="logo">
+    <%= image_tag "logo.png", height: 50, width: 50, crop: :fill, class: 'empty card-trip-img' %>
+  </div>
+  <div class="orders-container mt-3">
+    <div class="container order-details">
+      <div class="form-centralize-review d-flex flex-column align-items-center">
+        <div class="heading-rounded-sm">
+          <h2 style="text-align: center;"> Order and Package</h2>
+        </div>
+        <table class="styled-table">
+          <thead>
+            <tr class="table-title">
+              <th scope="col">Order</th>
+              <th scope="col">Order List</th>
+              <th scope="col">Quanity list</th>
+              <th scope="col">Package size</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @orders_to_product.each do |order_to_product| %>
+            <tr>
+              <td>
+                <%= link_to "#{Order.find(order_to_product.order_id).id}", order_path((Order.find(order_to_product.order_id).id))%>
+              </td>
+              <td><%= @products.find(order_to_product.product_id).name %></td>
+              <td><%= order_to_product.quantity %> </td>
+              <td><%= Box.find(Order.find(order_to_product.order_id).box_id).name %></td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+        <div class="btn-box">
+        <%= link_to "new order", new_orders_to_product_path, class: "order-btn" %>
+        </div>
       </div>
     </div>
   </div>
+
 </div>

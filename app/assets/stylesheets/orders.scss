@@ -58,10 +58,11 @@
   color: white;
   margin: 2rem;
   padding: 1rem 2rem;
-  background-color: #009879;
+  background-color: lightblue;
   border-radius: 10px;
   &:hover{
     text-decoration: none;
+    background-color: #6455B1;
     color: white;
   }
 }
